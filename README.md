@@ -29,17 +29,21 @@
 
 ## **3. Creation de branches** 
 #### Vu qu'on travaille avec Trello, prenons le cas où nous devons créér une branche pour notre ticket. On se met donc sur 'main' et on créé une branche à partir du chiffre "id" dans le lien de la carte trello (quand on clique sur la carte Trello, l'URL devient .../**id**-nom-de-ma-carte). Faire ensuite ces deux commmandes dans votre terminal (git bash ou autre) :
-`git checkout -b Yugi/fix/trello_22 //Permet de créé notre branche en local et de se déplacer dedans`
-`git push --set-upstream origin Yugi/fix/trello_22 //Permet de créé notre branche en remote dans le repo GitHub`
+```
+git checkout -b Yugi/fix/trello_22 //Permet de créé notre branche en local et de se déplacer dedans
+git push --set-upstream origin Yugi/fix/trello_22 //Permet de créé notre branche en remote dans le repo GitHub
+```
 #### Ensuite il est temps de coder !
 
 ## **4. Merging de branche et retrouver notre ticket**
 #### Attention : merger seulement après avoir bien tester et valider chez vous que vos changements sont OK ! Merge les packages ou configs si ils ont été modifiés aussi.
-`git checkout main //On retourne dans la branche principale`
-`git pull //On ne sait jamais si qqs d'autre à push dans cette branche`
-`git merge --squash Yugi/fix/trello_22 // Squash permet de ne pas ramener les 30 commits que vous avez fait pour cette branche mais en mettre qu'un`
-`git commit -m "merge Yugi/fix/trello_22 : correction du header" // Un commit clair et concis avec la branche dedans pour retrouver le ticket`
-`git push origin main // Et on push nos modifications dans main ;)`
+```
+git checkout main //On retourne dans la branche principale
+git pull //On ne sait jamais si qqs d'autre à push dans cette branche
+git merge --squash Yugi/fix/trello_22 // Squash permet de ne pas ramener les 30 commits que vous avez fait pour cette branche mais en mettre qu'un
+git commit -m "merge Yugi/fix/trello_22 : correction du header" // Un commit clair et concis avec la branche dedans pour retrouver le ticket
+git push origin main // Et on push nos modifications dans main ;)
+```
 
 ### Pour retrouver un ticket Trello selon la branche :
 #### 1. Rajouter `.json` à la fin du lien du Trello
@@ -48,7 +52,8 @@
 
 ## **5. Suppression de la branche**
 #### Une fois la branche merge, on peut supprimer celle-ci (Attention, toute suppression de branche est définitive) :
-`git push -d origin Yugi/dev/trello_22 //Supprime la branche sur le repo remote GitHub`
-`git branch -d Yugi/dev/trello_22 //Supprime la branche locallement`
-
+```
+git push -d origin Yugi/dev/trello_22 //Supprime la branche sur le repo remote GitHub
+git branch -d Yugi/dev/trello_22 //Supprime la branche locallement
+```
 ## Une question ? Pose là moi sur Discord (d3ltad4ve)
