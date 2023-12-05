@@ -57,4 +57,4 @@ git push origin main // Et on push nos modifications dans main ;)
 git push -d origin Yugi/dev/trello_22 //Supprime la branche sur le repo remote GitHub
 git branch -d Yugi/dev/trello_22 //Supprime la branche locallement
 ```
-## Une question ? Pose là moi sur Discord (d3ltad4ve)
+## Une question ? Pose là moi sur Discord (Skeebug)
