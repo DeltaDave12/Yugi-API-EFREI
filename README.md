@@ -1,7 +1,8 @@
 # Yugi API, le wiki des cartes Yu-Gi-Oh !
 ## Ce ReadMe détient le lien vers un mini-cahier des charges du projet + comment nous allons gérer les branches lors de la phase de développement
 ## Je vous demande surtout de bien lire les parties sur les branches, qui feront en sorte que le projet se déroule bien sans conflits ou revert du git 
-
+#### Note : Si vous n'êtes pas confortable avec git et les branches, voici un cheat-sheet des commandes de bases : `https://github.com/joshnh/Git-Commands`
+  
 ## **1. Présentation du projet**
 
 ### **Yugi API est un projet d'application web symfony dans le contexte d'un cursus à EFREI Paris. Le but est de donner une sensation d'être dans un "wiki" en pouvant regarder les différentes cartes du monde de Yu-Gi-Oh, leur information et d'autres fonctionnalités.**
@@ -56,4 +57,4 @@ git push origin main // Et on push nos modifications dans main ;)
 git push -d origin Yugi/dev/trello_22 //Supprime la branche sur le repo remote GitHub
 git branch -d Yugi/dev/trello_22 //Supprime la branche locallement
 ```
-## Une question ? Pose là moi sur Discord (Skeebug)
+## Une question ? Pose là moi sur Discord (d3ltaD4ve)
