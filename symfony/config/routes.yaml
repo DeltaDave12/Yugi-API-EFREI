@@ -13,19 +13,18 @@ accueil:
     controller: App\Controller\HomeController::index
 
 contactModify:
-    # id est dynamique ici
     path: /contact/modify{id}
-    # après les "::", c'est la méthode appellée
     controller: App\Controller\ContactController::modify
-    # force l'utilisation d'un caracctère, ici un nombre
     requirements:
         id: '\d'
 
 contactDelete:
-    # id est dynamique ici
     path: /contact/delete{id}
-    # après les "::", c'est la méthode appellée
     controller: App\Controller\ContactController::delete
-    # force l'utilisation d'un caracctère, ici un nombre
     requirements:
         id: '\d'
+
+yugioh:
+    path: '/yugioh/cardinfo'
+    controller: 'App\Controller\HomeController::getCardInfo'
+    methods: ['GET']
