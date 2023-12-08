@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <th scope="row">{{ contact.id }}</th>
+                <td>{{ contact.nom }}</td>
+                <td>{{ contact.prenom }}</td>
+                <td>{{ contact.email }}</td>
+                <td><a href="{{ path('contactModify', {id: contact.id})}}" class="btn btn-primary">Modifer</a></td>
+                <td><a href="{{ path('contactDelete', {id: contact.id})}}" class="btn btn-danger">Supprimer</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('contact')}}" class="btn btn-success">Ajouter un contact</a>
+{% endblock %}
