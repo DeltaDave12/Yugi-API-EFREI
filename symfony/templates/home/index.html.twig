@@ -1,29 +1,53 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yugi API</title>
 
-{% block title %}Hello HomeController!{% endblock %}
+    
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css')}}" />
+</head>
+<body>
 
-{% block body %}
-    <table class="table">
-        <thead>
-            <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Prenom</th>
-            <th scope="col">Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for contact in contacts %}
-            <tr>
-                <th scope="row">{{ contact.id }}</th>
-                <td>{{ contact.nom }}</td>
-                <td>{{ contact.prenom }}</td>
-                <td>{{ contact.email }}</td>
-                <td><a href="{{ path('contactModify', {id: contact.id})}}" class="btn btn-primary">Modifer</a></td>
-                <td><a href="{{ path('contactDelete', {id: contact.id})}}" class="btn btn-danger">Supprimer</a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <a href="{{ path('contact')}}" class="btn btn-success">Ajouter un contact</a>
-{% endblock %}
+    <!-- Header -->
+    <header style="background-color: #f8f9fa; padding: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h1>Yugi API</h1>
+            </div>
+            <div>
+                <a href="#" style="margin-right: 20px;">Page 1</a>
+                <a href="#" style="margin-right: 20px;">Page 2</a>
+                <a href="#">Page 3</a>
+                <!-- Placeholder for profile image -->
+                <img src="path/to/profile-image.jpg" alt="Profile Image" style="border-radius: 50%; width: 40px; height: 40px; margin-left: 20px;">
+            </div>
+        </div>
+    </header>
+
+    <!-- Carousel -->
+    <div style="overflow: hidden; width: 100%;">
+        <!-- Image 1 -->
+        <div style="display: inline-block; width: 100%;">
+            <img src="path/to/image1.jpg" alt="Image 1" style="width: 100%; height: auto;">
+        </div>
+        <!-- Image 2 -->
+        <div style="display: inline-block; width: 100%;">
+            <img src="path/to/image2.jpg" alt="Image 2" style="width: 100%; height: auto;">
+        </div>
+        <!-- Image 3 -->
+        <div style="display: inline-block; width: 100%;">
+            <img src="path/to/image3.jpg" alt="Image 3" style="width: 100%; height: auto;">
+        </div>
+    </div>
+
+    <!-- Content below Carousel -->
+    <div style="margin: 20px 0; text-align: center;">
+        <a href="page-url">
+            <img src="path/to/rectangular-image.jpg" alt="Rectangular Image" style="max-width: 100%; height: auto;">
+        </a>
+    </div>
+
+</body>
+</html>
