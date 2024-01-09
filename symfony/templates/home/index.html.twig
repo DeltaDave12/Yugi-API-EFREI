@@ -3,27 +3,87 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-    <table class="table">
+    <table class="Table_1">
         <thead>
             <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Prenom</th>
-            <th scope="col">Email</th>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Email</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
-            {% for contact in contacts %}
-            <tr>
-                <th scope="row">{{ contact.id }}</th>
-                <td>{{ contact.nom }}</td>
-                <td>{{ contact.prenom }}</td>
-                <td>{{ contact.email }}</td>
-                <td><a href="{{ path('contactModify', {id: contact.id})}}" class="btn btn-primary">Modifer</a></td>
-                <td><a href="{{ path('contactDelete', {id: contact.id})}}" class="btn btn-danger">Supprimer</a></td>
-            </tr>
-            {% endfor %}
+            <!-- Le contenu du tableau sera ajouté ici par JavaScript -->
         </tbody>
     </table>
     <a href="{{ path('contact')}}" class="btn btn-success">Ajouter un contact</a>
+    <div class="cardDiv">
+        <img src="" />
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Appel de la fonction pour récupérer et afficher les contacts
+            fetchAndDisplayContacts();
+            fetchCards();
+        });
+
+        // Fonction pour récupérer et afficher les contacts
+        function fetchAndDisplayContacts() {
+            // Utilisez la fonction fetch pour effectuer une requête GET
+            fetch('http://127.0.0.1:8000/api/contacts')
+                .then(response => response.json()) // Convertit la réponse en JSON
+                .then(data => {
+                    // Récupérez le corps du tableau
+                    const tbody = document.querySelector('.Table_1 tbody');
+                    
+                    // Parcourez les contacts et ajoutez-les au tableau
+                    data["hydra:member"].forEach(contact => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <th scope="row">${contact.id}</th>
+                            <td>${contact.nom}</td>
+                            <td>${contact.prenom}</td>
+                            <td>${contact.email}</td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    // Gérez les erreurs en cas de problème lors de la requête
+                    console.error('Error:', error);
+                });
+        }
+
+        function fetchCards() {
+            // Utilisez la fonction fetch pour effectuer une requête GET
+            fetch('https://db.ygoprodeck.com/api/v7/cardinfo.php?level=4&attribute=water&sort=atk')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    const cardDiv = document.querySelector('.cardDiv');
+                    data.data.forEach(card => {
+                        if (card.card_images && card.card_images.length > 0) {
+                            const cardContainer = document.createElement('div');
+                            cardContainer.classList.add('cardDiv');
+                            card.card_images.forEach(image => {
+                                const imgElement = document.createElement('img');
+                                imgElement.src = image.image_url;
+                                imgElement.alt = 'Card Image';
+                                cardContainer.appendChild(imgElement);
+                            });
+                            cardDiv.appendChild(cardContainer);
+                        }
+                    });
+                    console.log('data', data);
+                })
+                .catch(error => {
+                    // Gérez les erreurs en cas de problème lors de la requête
+                    console.error('Error:', error);
+                });
+        }
+    </script>   
 {% endblock %}
