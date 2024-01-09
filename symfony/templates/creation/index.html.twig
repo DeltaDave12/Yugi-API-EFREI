@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yu-Gi-Oh! World</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+
+
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; 
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100px;
+            background-color: #1f1f1f;
+            padding: 0 20px;
+        }
+
+        header img {
+            height: 125px;
+        }
+
+        .navigation a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 40px; /* Adjusted spacing */
+            transition: color 0.3s ease-in-out;
+            font-size:18px;
+        }
+
+        .navigation a:hover, .navigation a:focus {
+            color: #e9e9e9;
+            text-decoration: underline;
+        }
+
+        
+
+        .profile .profile-image {
+        background-color: grey;
+        padding: 1px;
+        
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        height: 100px;
+        object-fit: cover; 
+}
+
+
+        .carousel img {
+            border-radius: 8px;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .content .image-left,
+        .content .image-right {
+            flex-basis: 100%;
+            padding: 10px;
+               
+            
+        }
+
+        .content .image-center {
+            flex-basis: calc(100% - 220px);
+            padding: 10px;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .content .image-left,
+            .content .image-right {
+                flex: 1;
+                max-width: 200px;
+            }
+            .content .image-center {
+                flex: 3;
+            }
+        }
+
+        .content img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #1f1f1f;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .image-right img {
+            margin-bottom: 30px;
+        }
+
+        .image-left img {
+            margin-bottom: 30px;
+        }
+
+        
+
+.card-form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yugi API</title>
+
+    
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css')}}" />
+</head>
+<body>
+
+    <!-- Header -->
+    <header style="background-color: #f8f9fa; padding: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h1>Yugi API création</h1> 
+            </div>
+            <div>
+                <a href="#" style="margin-right: 20px;">Page 1</a>
+                <a href="#" style="margin-right: 20px;">Page 2</a>
+                <a href="#">Page 3</a>
+                <!-- Placeholder for profile image -->
+                <img src="path/to/profile-image.jpg" alt="Profile Image" style="border-radius: 50%; width: 40px; height: 40px; margin-left: 20px;">
+            </div>
+        </div>
+    </header>
+ <div class="card-form">
+        <h2>Create Yu-Gi-Oh! Card</h2>
+        <form id="cardForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="type">Type:</label>
+            <input type="text" id="type" name="type" required>
+
+            <label for="attribute">Attribute:</label>
+            <input type="text" id="attribute" name="attribute" required>
+
+            <label for="def">Defense:</label>
+            <input type="number" id="def" name="def" required>
+
+            <label for="atk">Attack:</label>
+            <input type="number" id="atk" name="atk" required>
+
+            <label for="level">Level:</label>
+            <input type="number" id="level" name="level" required>
+
+            <label for="desc">Description:</label>
+            <textarea id="desc" name="desc" required></textarea>
+
+            <label for="race">Race:</label>
+            <input type="text" id="race" name="race" required>
+
+            <label for="prix">Price:</label>
+            <input type="number" id="prix" name="prix" required>
+
+            <label for="imageUrl">Image URL:</label>
+            <input type="url" id="imageUrl" name="imageUrl" required>
+
+            <button type="button" onclick="createCard()">Create Card</button>
+        </form>
+    </div>
+
+</body>
+</html>
+
+</boby>
