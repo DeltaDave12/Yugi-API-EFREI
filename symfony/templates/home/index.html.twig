@@ -6,6 +6,9 @@
     <title>Yu-Gi-Oh! World</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
+
+
+        
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -121,6 +124,42 @@
             margin-bottom: 30px;
         }
 
+        
+
+.card-form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
     </style>
 </head>
 <body>
@@ -151,28 +190,41 @@
             </div>
         </div>
     </header>
+ <div class="card-form">
+        <h2>Create Yu-Gi-Oh! Card</h2>
+        <form id="cardForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
 
-    <!-- Carousel -->
-    <div style="overflow: hidden; width: 100%;">
-        <!-- Image 1 -->
-        <div style="display: inline-block; width: 100%;">
-            <img src="path/to/image1.jpg" alt="Image 1" style="width: 100%; height: auto;">
-        </div>
-        <!-- Image 2 -->
-        <div style="display: inline-block; width: 100%;">
-            <img src="path/to/image2.jpg" alt="Image 2" style="width: 100%; height: auto;">
-        </div>
-        <!-- Image 3 -->
-        <div style="display: inline-block; width: 100%;">
-            <img src="path/to/image3.jpg" alt="Image 3" style="width: 100%; height: auto;">
-        </div>
-    </div>
+            <label for="type">Type:</label>
+            <input type="text" id="type" name="type" required>
 
-    <!-- Content below Carousel -->
-    <div style="margin: 20px 0; text-align: center;">
-        <a href="page-url">
-            <img src="path/to/rectangular-image.jpg" alt="Rectangular Image" style="max-width: 100%; height: auto;">
-        </a>
+            <label for="attribute">Attribute:</label>
+            <input type="text" id="attribute" name="attribute" required>
+
+            <label for="def">Defense:</label>
+            <input type="number" id="def" name="def" required>
+
+            <label for="atk">Attack:</label>
+            <input type="number" id="atk" name="atk" required>
+
+            <label for="level">Level:</label>
+            <input type="number" id="level" name="level" required>
+
+            <label for="desc">Description:</label>
+            <textarea id="desc" name="desc" required></textarea>
+
+            <label for="race">Race:</label>
+            <input type="text" id="race" name="race" required>
+
+            <label for="prix">Price:</label>
+            <input type="number" id="prix" name="prix" required>
+
+            <label for="imageUrl">Image URL:</label>
+            <input type="url" id="imageUrl" name="imageUrl" required>
+
+            <button type="button" onclick="createCard()">Create Card</button>
+        </form>
     </div>
 
 </body>
