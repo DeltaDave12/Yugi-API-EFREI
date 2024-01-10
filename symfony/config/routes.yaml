@@ -21,6 +21,24 @@ contactModify:
     requirements:
         id: '\d'
 
+creationCard:
+    # id est dynamique ici
+    path: /creation/
+    controller: App\Controller\CreationController::index
+
+modificationCard:
+    # id est dynamique ici
+    path: /modification/
+    controller: App\Controller\ModificationController::index
+
+persoCard:
+    # id est dynamique ici
+    path: /perso/
+    controller: App\Controller\PersoController::index
+    
+   
+  
+
 contactDelete:
     # id est dynamique ici
     path: /contact/delete{id}
