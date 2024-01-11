@@ -27,3 +27,8 @@ modifCarte:
     # id est dynamique ici
     path: /modif/
     controller: App\Controller\ModifCarteController::index
+
+users:
+    # id est dynamique ici
+    path: /users/
+    controller: App\Controller\UserController::index

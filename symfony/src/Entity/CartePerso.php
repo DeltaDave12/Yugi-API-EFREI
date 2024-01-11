@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\Get;
@@ -10,28 +12,37 @@ use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use App\Repository\CartePersoRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CartePersoRepository::class)]
 #[ApiResource(
     operations: [
-        new Delete(),
-        new Get(),
-        new GetCollection(),
+        new GetCollection(
+            normalizationContext: ['groups'=> ['getCollection:carte']]
+        ),
+        new Get(
+            normalizationContext: ['groups'=> ['get:carte']]
+        ),
         new Patch(),
-        new Post()
-    ]
-)]
+        new Post(),
+        new Delete()
+    ],
+    )]
+#[ApiFilter(SearchFilter::class, properties: ['name' => 'partial'])]
 class CartePerso
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['get:carte', 'getCollection:carte'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['get:carte', 'getCollection:carte'])]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['get:carte'])]
     private ?string $type = null;
 
     #[ORM\Column]
@@ -41,21 +52,27 @@ class CartePerso
     private ?int $def = null;
 
     #[ORM\Column]
+    
     private ?int $level = null;
 
     #[ORM\Column(length: 255)]
+    
     private ?string $race = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    
     private ?string $price = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    
     private ?string $archetype = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['getCollection:carte'])]
     private ?string $image_url = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    
     private ?string $description = null;
 
     public function getId(): ?int
