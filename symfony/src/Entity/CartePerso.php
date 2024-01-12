@@ -57,33 +57,35 @@ class CartePerso
     private ?string $type = null;
 
     #[ORM\Column]
+    #[Groups(['get:carte'])]
     private ?int $atk = null;
 
     #[ORM\Column]
+    #[Groups(['get:carte'])]
     private ?int $def = null;
 
     #[ORM\Column]
-    
+    #[Groups(['get:carte'])]
     private ?int $level = null;
 
     #[ORM\Column(length: 255)]
-    
+    #[Groups(['get:carte'])]
     private ?string $race = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    
+    #[Groups(['get:carte'])]
     private ?string $price = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    
+    #[Groups(['get:carte'])]
     private ?string $archetype = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['getCollection:carte'])]
+    #[Groups(['get:carte', 'getCollection:carte'])]
     private ?string $image_url = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    
+    #[Groups(['get:carte'])]
     private ?string $description = null;
 
     public function getId(): ?int
