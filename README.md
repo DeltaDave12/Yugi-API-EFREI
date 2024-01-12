@@ -14,6 +14,17 @@
 ### Comme vous voyez dans le Trello, votre ticket (hors tâches de recherche ou de design) va se comporter comme ceci :
 ![Graphique du fonctionnement des tickets Trello](/autres/graph_1.PNG)
 
+## **2. Setup le projet pour développer**
+
+###  Pour pouvoir développer Yugi API en local, il faut setup de façon classique l'application : 
+#### 1. Git clone https://github.com/DeltaDave12/Yugi-API-EFREI.git
+#### 2. Avec un terminal git, aller sur la branche main (git checkout main)
+#### 3. Avec un terminal au choix, aller dans ./symfony et faire un 'composer install'
+#### 4. Créé une BDD 'cartes' sur phpMyAdmin (localhost)
+#### 5. Importer la table 'carte_perso.sql'
+#### 6. Enfin, faites (dans ./symfony toujours) un symfony server:start !
+
+
 ## **2. Types des branches**
 
 ###  Banche #1 : main 
