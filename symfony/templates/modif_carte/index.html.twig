@@ -3,18 +3,43 @@
 {% block title %}Hello ModifCarteController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<body>
+ <div class="card-form">
+        <h2>Create Yu-Gi-Oh! Card</h2>
+        <form id="cardForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+            <label for="type">Type:</label>
+            <input type="text" id="type" name="type" required>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Dave/Important/ChallengeWeb/Yugi-API-/symfony/src/Controller/ModifCarteController.php'|file_link(0) }}">src/Controller/ModifCarteController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Dave/Important/ChallengeWeb/Yugi-API-/symfony/templates/modif_carte/index.html.twig'|file_link(0) }}">templates/modif_carte/index.html.twig</a></code></li>
-    </ul>
-</div>
+            <label for="attribute">Attribute:</label>
+            <input type="text" id="attribute" name="attribute" required>
+
+            <label for="def">Defense:</label>
+            <input type="number" id="def" name="def" required>
+
+            <label for="atk">Attack:</label>
+            <input type="number" id="atk" name="atk" required>
+
+            <label for="level">Level:</label>
+            <input type="number" id="level" name="level" required>
+
+            <label for="desc">Description:</label>
+            <textarea id="desc" name="desc" required></textarea>
+
+            <label for="race">Race:</label>
+            <input type="text" id="race" name="race" required>
+
+            <label for="prix">Price:</label>
+            <input type="number" id="prix" name="prix" required>
+
+            <label for="imageUrl">Image URL:</label>
+            <input type="url" id="imageUrl" name="imageUrl" required>
+
+            <button type="button" onclick="createCard()">Create Card</button>
+        </form>
+    </div>
+
+</body>
 {% endblock %}

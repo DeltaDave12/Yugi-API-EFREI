@@ -8,13 +8,46 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Dave/Important/ChallengeWeb/Yugi-API-/symfony/src/Controller/CartesAllController.php'|file_link(0) }}">src/Controller/CartesAllController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Dave/Important/ChallengeWeb/Yugi-API-/symfony/templates/cartes_all/index.html.twig'|file_link(0) }}">templates/cartes_all/index.html.twig</a></code></li>
-    </ul>
+<div class="mt-3 mb-3 ml-3">
+    <label>Nom de la carte: </label>
+    <input>
+    <button>Rechercher</button>
 </div>
+
+<div class="cardDiv">
+</div>
+
+
+{% endblock %}
+{% block javascripts %}
+<script>
+    getFirst100Cards()
+
+    function getFirst100Cards() {
+        fetch('https://db.ygoprodeck.com/api/v7/cardinfo.php')
+        .then(response => response.json())
+            .then(resp => {
+                let cards = resp.data.slice(0, 50); // Prend les 100 premières cartes
+                const cardDiv = document.querySelector('.cardDiv');
+                cards.forEach(card => {
+                    if (card.card_images && card.card_images.length > 0) {
+                        const cardContainer = document.createElement('div');
+                        cardContainer.classList.add('cardContainer');
+                        card.card_images.forEach(image => {
+                            const imgElement = document.createElement('img');
+                            imgElement.src = image.image_url;
+                            imgElement.alt = 'Card Image';
+                            imgElement.classList.add('cardImage');
+                            cardContainer.appendChild(imgElement);
+                        });
+                        cardDiv.appendChild(cardContainer);
+                    }
+                });
+                console.log('resp', resp);
+            })
+            .catch(error => {
+                console.error('Error: ', error);
+            });
+    }
+</script>
 {% endblock %}

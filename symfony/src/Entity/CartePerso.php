@@ -28,7 +28,18 @@ use Symfony\Component\Serializer\Annotation\Groups;
         new Delete()
     ],
     )]
-#[ApiFilter(SearchFilter::class, properties: ['name' => 'partial'])]
+#[ApiFilter(SearchFilter::class, properties: [
+    'name' => 'partial',
+    'type' => 'partial',
+    'atk' => 'partial',
+    'def' => 'partial',
+    'level' => 'partial',
+    'race' => 'partial',
+    'price' => 'partial',
+    'archetype' => 'partial',
+    'description' => 'partial',
+    ]
+)]
 class CartePerso
 {
     #[ORM\Id]

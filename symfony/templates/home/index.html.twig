@@ -1,157 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<style>
-    body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f8f9fa; 
-    }
-
-    header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 100px;
-        background-color: #1f1f1f;
-        padding: 0 20px;
-    }
-
-    header img {
-        height: 125px;
-    }
-
-    .navigation a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-        margin-right: 40px; /* Adjusted spacing */
-        transition: color 0.3s ease-in-out;
-        font-size:18px;
-    }
-
-    .navigation a:hover, .navigation a:focus {
-        color: #e9e9e9;
-        text-decoration: underline;
-    }
-
-    
-
-    .profile .profile-image {
-    background-color: grey;
-    padding: 1px;
-    
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 100px;
-    object-fit: cover; 
-}
-
-
-    .carousel img {
-        border-radius: 8px;
-    }
-
-    .content {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 20px;
-    }
-
-    .content .image-left,
-    .content .image-right {
-        flex-basis: 100%;
-        padding: 10px;
-            
-        
-    }
-
-    .content .image-center {
-        flex-basis: calc(100% - 220px);
-        padding: 10px;
-        text-align: center;
-    }
-
-    @media (min-width: 768px) {
-        .content .image-left,
-        .content .image-right {
-            flex: 1;
-            max-width: 200px;
-        }
-        .content .image-center {
-            flex: 3;
-        }
-    }
-
-    .content img {
-        width: 100%;
-        height: auto;
-        cursor: pointer;
-        border-radius: 8px;
-    }
-
-    footer {
-        background-color: #1f1f1f;
-        color: white;
-        padding: 10px 0;
-        text-align: center;
-        margin-top: 20px;
-        font-size: 0.9em;
-    }
-
-    footer a {
-        color: #fff;
-        text-decoration: none;
-        padding: 0 10px;
-    }
-
-    footer a:hover {
-        text-decoration: underline;
-    }
-
-    .image-right img {
-        margin-bottom: 30px;
-    }
-
-    .image-left img {
-        margin-bottom: 30px;
-    }
-
-    .page-1-url img {
-        margin-bottom: 30px;
-
-}
-
-</style>
 <body>
-
-    <header>
-        <!-- Logo on the left -->
-        <div>
-            <img src="/assets/images/yu gi api logo.png" alt="Yu-Gi-Oh! API Logo">
-        </div>
-
-        <!-- Navigation Links right next to the logo -->
-        <div class="navigation">
-            <a href="#">Carte Reçue par l'API</a>
-            <a href="#">Nos cartes crées</a>
-            <a href="#">Création de cartes</a>
-            <a href="#">Modifications des cartes</a>
-            
-        </div>
-
-        <!-- Profile Image on the far right -->
-        <div class="profile">
-            <img class="profile-image" src="/assets/images/pp_magie.png" alt="Profile Image">
-        </div>
-    </header>
-
       <!-- Carousel -->
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <!-- Image 1 -->
             <div class="carousel-item active">
-                <img class="d-block w-100" src="/assets/images/carou1.png" alt="First slide">
+                <img class="d-block w-100" src="{{ asset("assets/images/carou1.png")}}" alt="First slide">
             </div>
             <!-- Image 2 -->
             <div class="carousel-item">
@@ -199,17 +55,6 @@
             <img src="/assets/images/magic-circle.png" alt="Magic Circle">
         </div>
     </div>
-
-    <footer>
-        <div>
-            &copy; 2024 Yu-Gi-Oh! World. Tous droits réservés.
-            <br>
-            Suivez-nous sur les réseaux sociaux :
-            <a href="#">Facebook</a> | 
-            <a href="#">Twitter</a> | 
-            <a href="#">Instagram</a>
-        </div>
-    </footer>
 
     <!-- Bootstrap JavaScript -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
